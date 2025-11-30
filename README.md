@@ -8,14 +8,13 @@
 
 ## 🎯 Project Overview
 
-This is a **beginner-friendly Ansible project** that automatically deploys a personal static website on an Ubuntu server. It sets up Nginx, configures firewall rules, deploys your website files, and ensures everything is secure and running.
+This is a **beginner-friendly Ansible project** that automatically deploys a personal static website on an Fedora 42 server. It sets up Nginx, configures firewall rules, deploys your website files, and ensures everything is secure and running.
 
 **Perfect for:**
 - Learning Ansible basics with a real-world project
 - Automating web server setup
 - Hosting portfolio/resume websites
 - Understanding infrastructure as code
-- Adding to your GitHub portfolio
 
 **What This Automates:**
 - ✅ System updates and security patches
@@ -25,21 +24,19 @@ This is a **beginner-friendly Ansible project** that automatically deploys a per
 - ✅ Basic security hardening
 - ✅ Service management and health checks
 
----
 
 ## 📋 Prerequisites
 
 **Required:**
-- Ubuntu 20.04+ server (VM, cloud instance, or bare metal)
+- Fedora 42 server (VM, cloud instance, or bare metal)
 - SSH access to the server with sudo privileges
-- Ansible installed on your control machine: `sudo apt install ansible -y`
+- Ansible installed on your control machine: `sudo dnf install ansible -y`
 - SSH key-based authentication set up
 
 **Optional:**
 - Your own domain name (works with IP address too)
 - Basic understanding of web servers (helpful but not required)
 
----
 
 ## 🚀 Quick Start
 ```bash

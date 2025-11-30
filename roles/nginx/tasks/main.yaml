@@ -22,7 +22,7 @@
     path: "{{item}}"
     state: absent
   loop:
-  - /etc/nginx/nginx.conf.d/default.conf
+  - /etc/nginx/conf.d/default.conf
   - /usr/share/nginx/html
   notify: Reload Nginx 
   tags: config
