@@ -1,0 +1,54 @@
+---
+#bascic common packages installation
+- name : Install common packages
+  dnf:
+    name: "{{common_packages}}"
+    state: present
+    update_cache: yes
+  tags: :packages
+# Configure firewalld
+- name: Configure firewalld - Install firewalld
+  dnf:
+    name: firewalld
+    state: present
+  tags: :security
+
+- name: Start and enable firewalld
+  systemd:
+    name: firewalld
+    emabled: yes
+    state: started
+  tags: :security
+
+- name: Allow services through firewall
+  firewalld:
+    service: "{{ item }}"
+    permanent: yes
+    state: enabled
+    immediate: yes
+  loop:
+    - ssh
+    - http
+    - https
+  tags: :security
+
+#automatic updates configuration
+- name: Install dnf-automatic for automatic upodates
+  dnf:
+    name: dnf-automatic
+    state: present
+  tags: :updates
+
+- name: Configure dnf-automaticto apply updates 
+  lineinfile:
+    path: /etc/dnf/automatic.conf
+    regexp: '^apply_updates ='
+    line: 'apply_updates = yes'
+  tags: :updates
+
+- name: Enable and start dnf-automatic timer
+  systemd:
+    name: dnf-automatic.timer
+    enabled: yes
+    state: started
+  tags: :updates
