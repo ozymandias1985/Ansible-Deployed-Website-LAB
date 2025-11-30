@@ -16,7 +16,7 @@
 - name: Start and enable firewalld
   systemd:
     name: firewalld
-    emabled: yes
+    enabled: yes
     state: started
   tags: :security
 
@@ -39,12 +39,16 @@
     state: present
   tags: :updates
 
-- name: Configure dnf-automaticto apply updates 
-  lineinfile:
-    path: /etc/dnf/automatic.conf
-    regexp: '^apply_updates ='
-    line: 'apply_updates = yes'
-  tags: :updates
+- name: Ensure dnf-automatic config exists
+  copy:
+    content: |
+      [commands]
+      apply_updates = yes
+    dest: /etc/dnf/automatic.conf
+    owner: root
+    group: root
+    mode: '0644'
+  tags: security
 
 - name: Enable and start dnf-automatic timer
   systemd:
