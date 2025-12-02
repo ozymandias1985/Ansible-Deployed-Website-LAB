@@ -5,7 +5,7 @@
 [![Ansible](https://img.shields.io/badge/Ansible-2.9+-blue.svg)](https://www.ansible.com/)
 
 ---
-
+Link to Github PAges with webpage: https://ozymandias1985.github.io/ansible-deployed-site/
 ## 🎯 Project Overview
 
 This is a **beginner-friendly Ansible project** that automatically deploys a personal static website on an Fedora 42 server. It sets up Nginx, configures firewall rules, deploys your website files, and ensures everything is secure and running.
